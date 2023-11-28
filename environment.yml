@@ -1,0 +1,37 @@
+name: slidecalib
+channels:
+  - pytorch  # The order in which channels are arranged matters! Make sure to install Pytorch from Pytorch channel
+  - nvidia
+  - rapidsai
+  - pyg
+  - defaults
+  - conda-forge
+dependencies:
+  - pip
+  - python=3.9.*
+  - openslide=3.4.1  # C-Library, latest release from 2015
+  - openslide-python=1.2.0  # Python binding, release from 2022
+  - pytorch=1.13.0=*cuda*
+  - cudatoolkit=11.7
+  - torchvision=0.14.0
+  - cucim=23.6.0  # Alternative to openslide
+  - pyg=2.3.1  # Pytorch Geometric Library for GNN implementation
+  - pytorch-cluster=1.6.1  # Needed for torch_geometric.nn.radius_graph()
+  - pip:
+    - black==23.3.*
+    - tensorboard==2.11.*  # Before requiring glibc > 2.31
+    - torch-tb-profiler==0.4.1
+    - pytorch-lightning==1.8.6  # Before switching from LightningLite to Fabric
+    - jsonargparse[signatures]==4.19.*
+    - omegaconf==2.3.0
+    - torchsampler==0.1.2
+    - pandas==1.5.2  # Before switching from Numpy to Apache Arrow backend
+    - numpy==1.24.4  # Maximum supported version raised by SciPy
+    - scikit-learn==1.1.2  # Maximum supported version in this environment, raised by torchvision
+    - matplotlib==3.7.*
+    - seaborn==0.12.2
+    - jupyterlab==4.0.2
+    - ipywidgets==8.0.7
+    - optuna==3.2.0
+    - future==0.18.3  # Required for smooth-topk package
+    - torchmetrics==1.0.*  # First major release with plotting support

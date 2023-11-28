@@ -1,0 +1,15 @@
+# IDEs
+.vscode/
+
+# Python
+__pycache__/
+
+# Logs
+lightning_logs/
+cufile.log
+
+# Checkpoints
+checkpoints/*.ckpt
+
+# Report
+report/
