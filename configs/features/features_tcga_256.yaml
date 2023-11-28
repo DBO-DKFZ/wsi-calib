@@ -1,0 +1,13 @@
+dataset_name: TCGA-CRC
+slide_root_dir: ${oc.env:TCGA_ROOT_DIR}
+patch_dir: ${oc.env:SLIDE_PROCESS_DIR}/TCGA-CRC-SCalib/patches_256
+feat_base_dir: ${oc.env:SLIDE_PROCESS_DIR}/TCGA-CRC-SCalib
+patch_size: 256
+extensions: [".svs"]
+resize_val: 256
+crop_val: 224
+batch_size: 256
+num_workers: 8
+model: resnet18
+backend: cucim
+pbar_refresh_rate: 0

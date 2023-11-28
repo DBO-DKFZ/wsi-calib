@@ -1,0 +1,44 @@
+name: mco-transformer-ciga
+save_dir: ${oc.env:EXPERIMENT_LOCATION}/slide-calib_512
+eval: true
+seed_everything: 42
+data:
+  class_path: src.datamodules.HistoSlideModule
+  init_args:
+    data_p: ${oc.env:SLIDE_PROCESS_DIR}/MCO-SCalib
+    feature_folder: features_512_resnet18-ciga
+    patch_folder: patches_512
+    task: msi
+    batch_size: 1
+    num_workers: 8
+    fold: 1
+    data_ood_p: ${oc.env:SLIDE_PROCESS_DIR}/TCGA-CRC-SCalib
+model:
+  class_path: src.pl_modules.TransformerModule
+  init_args:
+    n_classes: 2
+    input_dim: 512
+    model_dim: 256
+    max_seq_len: 5000
+    n_heads: 4
+    n_layers: 4
+    dim_feedforward: 512
+    dropout: 0.1
+    input_dropout: 0.1
+    lr: 5e-4
+    warmup: 100
+    aggregate: cls
+    store_attention: false    
+trainer:
+  callbacks:
+    - class_path: pytorch_lightning.callbacks.TQDMProgressBar
+      init_args:
+        refresh_rate: 200
+  accelerator: gpu
+  devices: 1
+  strategy: null
+  precision: 16
+  num_sanity_val_steps: 0
+  limit_val_batches: 1.0
+  accumulate_grad_batches: 32
+  max_epochs: 200
