@@ -107,3 +107,9 @@ where X has to be in the range of [1, 5].
 
 ## Evaluate models
 We provide a juypter notebook to perform evaluations on the stored predicitons in the `notebooks/` directory.
+
+To better track notebooks with git, add the following lines to `.git/config`:
+```git
+[filter "strip-notebook-output"]
+    clean = "jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to=notebook --stdin --stdout --log-level=ERROR"
+```
