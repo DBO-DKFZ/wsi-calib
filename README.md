@@ -30,7 +30,7 @@ export SLIDE_PROCESS_DIR=path/to/local/storage
 |   |-- slide_information.csv
 ```
 
-3. Compute patch locations by using our preprocessing repository at <https://github.com/DBO-DKFZ/wsi_preprocessing-crc>.
+3. Compute patch locations by using our preprocessing repository at <https://github.com/DBO-DKFZ/wsi_preprocessing-crc> (tested with version 0.2 `git checkout v0.2`).
 The file structure should then look as follows:
 ```
 |-- MCO-SCalib
