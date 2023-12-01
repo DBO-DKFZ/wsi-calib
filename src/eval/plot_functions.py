@@ -156,7 +156,7 @@ def compute_metrics(
 
     # sns.set_context(context=None, font_scale=1, rc=insert_rc_args(rc_args))
     # sns.set_style("whitegrid")
-    # sns.set_palette(color_palette)
+    sns.set_palette(color_palette)
     grid = sns.catplot(
         kind="box",
         x=plot_x,
